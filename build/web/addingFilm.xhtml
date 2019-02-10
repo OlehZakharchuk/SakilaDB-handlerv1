@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Page for adding new film</title>
+    </h:head>
+    <body>
+        <h:form>
+            <h:commandButton value="home" action="index" />
+        </h:form>
+        <h:form>
+            Provide name of film <h:inputText id="in1" value="#{beanFilm.titleF}" />
+            Provide rental rate <h:inputText id="in2" value="#{beanFilm.rentalRate}" size="3"/>
+            Provide replacement cost <h:inputText id="in3" value="#{beanFilm.replacCost}" size="3"/>
+            <p>
+                Number of language<h:inputText id="in4" value="#{beanFilm.idLang}"/>
+            </p> 
+            <ol type="1">
+                <li>English</li>
+                <li>Italian</li>
+                <li>Japanese</li>
+                <li>Mandarin</li>
+                <li>French</li>
+                <li>German</li>
+            </ol>
+            <h:commandButton  value="Add film to database">
+                <f:ajax execute="in1 in2 in3 in4" render="out" />
+            </h:commandButton >
+            <h:outputText id="out" value="#{beanFilm.addMovie()}"/>
+
+        </h:form>
+    </body>
+</html>
